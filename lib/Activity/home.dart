@@ -1,7 +1,4 @@
-import 'dart:convert';
-
 import 'package:flutter/material.dart';
-import 'package:http/http.dart';
 
 class Home extends StatefulWidget {
   const Home({super.key});
@@ -31,6 +28,8 @@ class _HomeState extends State<Home> {
 
   @override
   Widget build(BuildContext context) {
+    Map? dataFromLoadingRoute =
+        ModalRoute.of(context)!.settings.arguments as Map<String, dynamic>;
     return Scaffold(
       appBar: AppBar(
         title: const Text("Home"),
@@ -39,7 +38,7 @@ class _HomeState extends State<Home> {
       body: Column(
         children: <Widget>[
           FloatingActionButton(onPressed: () {}),
-          const Text("nothing"),
+          Text(dataFromLoadingRoute["tempValue"]),
         ],
       ),
     );

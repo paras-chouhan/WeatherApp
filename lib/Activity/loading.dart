@@ -9,11 +9,28 @@ class LoadingActivity extends StatefulWidget {
 }
 
 class _LoadingActivityState extends State<LoadingActivity> {
-  void startApp() async {
-    GetData instance = GetData(location: "jaipurr");
-    await instance.getData();
+  String temp = "";
+  String humidity = "";
+  String airSpeed = "";
+  String description = "";
+  String mainWeather = "";
 
-    print(instance.airSpeed);
+  void startApp() async {
+    GetData instance = GetData(location: "jaipur");
+    await instance.getData();
+    temp = instance.temp;
+    humidity = instance.humidity;
+    airSpeed = instance.airSpeed;
+    description = instance.description;
+    mainWeather = instance.mainWeather;
+
+    Navigator.pushReplacementNamed(context, '/home/', arguments: {
+      "tempValue": temp,
+      "humidityValue": humidity,
+      "airSpeedValue": airSpeed,
+      "mainWeatherValue": mainWeather,
+      "descriptionValue": description,
+    });
   }
 
   @override

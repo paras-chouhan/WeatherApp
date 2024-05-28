@@ -27,7 +27,7 @@ class _LoadingActivityState extends State<LoadingActivity> {
   Widget build(BuildContext context) {
     return const Scaffold(
       body: SafeArea(
-        child: Text('loading'),
+        child: Text('loading...'),
       ),
     );
   }

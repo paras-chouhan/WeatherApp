@@ -28,8 +28,9 @@ class _HomeState extends State<Home> {
 
   @override
   Widget build(BuildContext context) {
-    Map? dataFromLoadingRoute =
-        ModalRoute.of(context)!.settings.arguments as Map<String, dynamic>;
+    Map? dataFromLoadingRoute = ModalRoute.of(context)!.settings.arguments
+        as Map<String,
+            dynamic>; //in this line we retreive the data from loading.dart
     return Scaffold(
       appBar: AppBar(
         title: const Text("Home"),
@@ -38,7 +39,8 @@ class _HomeState extends State<Home> {
       body: Column(
         children: <Widget>[
           FloatingActionButton(onPressed: () {}),
-          Text(dataFromLoadingRoute["tempValue"]),
+          Text(dataFromLoadingRoute["tempValue"] + "'C"),
+          Text(dataFromLoadingRoute["airSpeedValue"] + " km/h"),
         ],
       ),
     );

@@ -23,7 +23,7 @@ class GetData {
       //getting temprature, humidity
 
       Map tempData = data["main"];
-      double getTemp = tempData["temp"];
+      double getTemp = tempData["temp"] - 273.15; //convert into Celcius
       String humidityOfWeather = tempData["humidity"].toString();
 
       //getting description
@@ -34,14 +34,14 @@ class GetData {
 
       //getting air_speed
       Map weatherWindData = data["wind"];
-      double speed = weatherWindData["speed"];
+      double speed = weatherWindData["speed"] * 3.6; //convert m/s to km/h
 
       //assigning the value of data member
-      temp = getTemp.toString();
+      temp = getTemp.toStringAsFixed(2);
       humidity = humidityOfWeather;
       mainWeather = weatherMoodMain;
       description = weatherDescription;
-      airSpeed = speed.toString();
+      airSpeed = speed.toStringAsFixed(2);
     } catch (e) {
       temp = "Error!!";
       humidity = "Error!!";
